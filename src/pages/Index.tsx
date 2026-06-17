@@ -4,7 +4,6 @@ import HeroSection from "@/components/home/HeroSection";
 import ProductShowcaseSection from "@/components/home/ProductShowcaseSection";
 import ComparisonSection from "@/components/home/ComparisonSection";
 import EcosystemGridSection from "@/components/home/EcosystemGridSection";
-import FounderSection from "@/components/home/FounderSection";
 import UaeOpportunityStickySection from "@/components/home/UaeOpportunityStickySection";
 import StatsBar from "@/components/home/StatsBar";
 import PartnerLogosMarquee from "@/components/home/PartnerLogosMarquee";
