@@ -25,7 +25,6 @@ const Index = () => {
       <UaeOpportunityStickySection />
       <WhatWhyHowSection />
       <MarketIntelligence />
-      <TestimonialsSection />
       <StatsBar />
       <PartnerLogosMarquee />
       <FAQSection />
