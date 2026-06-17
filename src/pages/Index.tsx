@@ -10,7 +10,6 @@ import StatsBar from "@/components/home/StatsBar";
 import PartnerLogosMarquee from "@/components/home/PartnerLogosMarquee";
 import WhatWhyHowSection from "@/components/home/WhatWhyHowSection";
 import MarketIntelligence from "@/components/home/MarketIntelligence";
-import TestimonialsSection from "@/components/home/TestimonialsSection";
 import FAQSection from "@/components/home/FAQSection";
 import ConsultationCTA from "@/components/home/ConsultationCTA";
 
