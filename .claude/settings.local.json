@@ -1,0 +1,35 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node .tmp_screenshot2.cjs)",
+      "Bash(cd \"c:\\\\AdSavvy LLP\\\\project\\\\prospera sample main\" && rm -f .tmp_screenshot.cjs .tmp_screenshot2.cjs .tmp_shot_*.png .tmp_shot2_*.png)",
+      "Bash(npm install *)",
+      "Bash(node .tmp_hero.cjs)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173 --max-time 3)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:8082 --max-time 5)",
+      "Bash(grep -iE \"linkedin|instagram|twitter|^.*\\\\/x\\\\.js\")",
+      "Bash(node .tmp_footer.cjs)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8082)",
+      "Bash(node .tmp_sticky_footer.cjs)",
+      "Bash(node .tmp_footer2.cjs)",
+      "Bash(node .tmp_footer3.cjs)",
+      "Bash(npx tailwindcss *)",
+      "Bash(node .tmp_nav.cjs)",
+      "Bash(node -e \"const icons=require\\('lucide-react'\\); console.log\\(['Facebook','Instagram','Linkedin','Twitter','Youtube','Music2','Music','Clock','Clock3'].filter\\(k=>icons[k]\\).join\\(', '\\)\\)\")",
+      "Bash(node -e \"const icons=require\\('lucide-react'\\); console.log\\(['FacebookIcon','InstagramIcon','LinkedinIcon','TwitterIcon','YoutubeIcon','Clock3Icon'].filter\\(k=>icons[k]\\).join\\(', '\\)\\)\")",
+      "Bash(node screenshot-tmp.cjs)",
+      "Bash(taskkill //F //PID 47932)",
+      "Bash(node .tmp_eco.cjs)",
+      "Bash(node .tmp_ticker.cjs)",
+      "Bash(node verify-uae-section.cjs)",
+      "Bash(find src/components/ui -iname \"*beam*\")",
+      "Bash(find node_modules/@magicuidesign -maxdepth 4 -iname \"*beam*\")",
+      "Bash(npx @magicuidesign/cli@latest add animated-beam)",
+      "Bash(npx @magicuidesign/cli@latest --help)",
+      "Bash(npx shadcn@latest add \"https://magicui.design/r/animated-beam.json\" --yes)"
+    ],
+    "additionalDirectories": [
+      "C:\\AdSavvy LLP\\project\\prospera sample main"
+    ]
+  }
+}

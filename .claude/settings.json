@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -Command \"Get-Content 'c:\\\\AdSavvy LLP\\\\project\\\\prospera sample main\\\\src\\\\index.css'\")",
+      "Bash(npx tsc *)",
+      "Bash(grep -o '\"--prospera-logo: url\\(\\\\\\\\\\\\\"data:image/png;base64,[^\\\\\\\\]*' \"C:\\\\Users\\\\Mugesh\\\\.claude\\\\projects\\\\c--AdSavvy-LLP-project-prospera-sample-main\\\\333a6af1-e093-4de3-bca8-88a6cac9a55f.jsonl\" | head -c 200)",
+      "Read(//c/Users/Mugesh/.claude/projects/c--AdSavvy-LLP-project-prospera-sample-main/**)",
+      "Skill(run)",
+      "Skill(run:*)",
+      "Bash(ls .claude/skills)",
+      "Bash(ls .claude)",
+      "Bash(curl -s -o /dev/null -w \"8080: %{http_code}\\\\n\" http://localhost:8080/)",
+      "Bash(curl -s -o /dev/null -w \"8081: %{http_code}\\\\n\" http://localhost:8081/)",
+      "Bash(netstat -ano)"
+    ]
+  }
+}

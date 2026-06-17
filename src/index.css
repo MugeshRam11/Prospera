@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 37 33% 97%;
+    --foreground: 224 60% 11%;
+
+    --card: 37 33% 97%;
+    --card-foreground: 224 60% 11%;
+
+    --popover: 37 33% 97%;
+    --popover-foreground: 224 60% 11%;
+
+    --primary: 40 40% 55%;
+    --primary-foreground: 37 33% 97%;
+
+    --secondary: 222 45% 16%;
+    --secondary-foreground: 37 33% 97%;
+
+    --muted: 33 18% 87%;
+    --muted-foreground: 224 20% 40%;
+
+    --accent: 222 45% 16%;
+    --accent-foreground: 37 33% 97%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 224 60% 11% / 0.08;
+    --input: 224 60% 11% / 0.12;
+    --ring: 40 40% 55%;
+
+    --radius: 0.5rem;
+
+    /* Prypco-style structural tokens (brand colors retained) */
+    --hairline: hsl(var(--foreground) / 0.10);
+    --surface-soft: hsl(var(--foreground) / 0.04);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-glide: cubic-bezier(0.22, 1, 0.36, 1);
+    --shadow-glow: 0 0 32px hsl(var(--primary) / 0.18);
+
+    --brand-navy: 224 60% 11%;
+    --brand-gold: 40 40% 55%;
+    --brand-ivory: 37 33% 97%;
+    --brand-slate: 222 45% 16%;
+
+    --gradient-color: hsl(var(--primary));
+    --sparkles-color: hsl(var(--brand-ivory));
+
+    --prospera-black: #0a0a0a;
+    --prospera-navy: #0c1220;
+    --prospera-white: #f8f6f2;
+    --prospera-offwhite: #f0ede8;
+    --prospera-gold: #c5a059;
+    --prospera-gold-hover: #d4b06a;
+    --prospera-ivory: #f5f0e8;
+    --prospera-muted-dark: rgba(255,255,255,0.45);
+    --prospera-muted-light: rgba(10,10,10,0.5);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background: var(--prospera-black);
+    letter-spacing: -0.01em;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer utilities {
+  .text-label {
+    @apply text-sm font-display uppercase tracking-[0.18em] font-medium;
+  }
+
+  .gold-line {
+    @apply h-px bg-primary/30;
+  }
+
+  /* Translucent card surface — lets the scroll-color canvas tint through
+     instead of sitting on an opaque ivory block. */
+  .surface-translucent {
+    background: hsl(var(--foreground) / 0.03);
+    border: 0.5px solid hsl(var(--foreground) / 0.10);
+    backdrop-filter: blur(2px);
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32 px-6 md:px-12 lg:px-24;
+  }
+
+  .navy-surface {
+    @apply bg-secondary text-secondary-foreground;
+  }
+
+  .ivory-surface {
+    @apply bg-background text-foreground;
+  }
+
+  .card-shadow {
+    box-shadow: 0 10px 30px -10px rgba(10, 17, 40, 0.05);
+  }
+
+  .prospera-glide {
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  /* Prypco-pattern utilities (use brand tokens, not slate/blue) */
+  .hairline {
+    border: 0.5px solid hsl(var(--foreground) / 0.10);
+  }
+  .hairline-t { border-top: 0.5px solid hsl(var(--foreground) / 0.10); }
+  .hairline-b { border-bottom: 0.5px solid hsl(var(--foreground) / 0.10); }
+
+  .card-prypco {
+    @apply rounded-2xl bg-card transition-transform duration-300;
+    border: 0.5px solid hsl(var(--foreground) / 0.10);
+    transition-timing-function: var(--ease-spring);
+  }
+  .card-prypco:hover {
+    transform: translateY(-2px);
+    border-color: hsl(var(--primary) / 0.45);
+    box-shadow: var(--shadow-glow);
+  }
+
+  .badge-prypco {
+    @apply inline-flex items-center px-2.5 py-1 rounded-full text-[10px] font-sans uppercase tracking-[0.14em] text-primary;
+    background: hsl(var(--primary) / 0.10);
+    border: 0.5px solid hsl(var(--primary) / 0.25);
+  }
+
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-background;
+  }
+
+  @keyframes prypco-slide-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes prypco-scale-in {
+    from { opacity: 0; transform: scale(0.96); }
+    to   { opacity: 1; transform: scale(1); }
+  }
+  .animate-prypco-up { animation: prypco-slide-up 0.7s var(--ease-spring) both; }
+  .animate-prypco-in { animation: prypco-scale-in 0.7s var(--ease-spring) both; }
+
+  /* Micro-proof chips — gentle float (Prypco-style) */
+  @keyframes proof-drift-a {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-7px); }
+  }
+  @keyframes proof-drift-b {
+    0%, 100% { transform: translateY(-4px); }
+    50%      { transform: translateY(5px); }
+  }
+  .proof-drift-a { animation: proof-drift-a 5.5s ease-in-out infinite; }
+  .proof-drift-b { animation: proof-drift-b 6.5s ease-in-out infinite 0.8s; }
+
+  /* Hero ambient gold-orb drift (dark private-banking hero) */
+  @keyframes hero-glow-drift {
+    0%, 100% { translate: 0 0; }
+    33%      { translate: 40px -28px; }
+    66%      { translate: -30px 22px; }
+  }
+  .hero-glow-drift { animation: hero-glow-drift 18s ease-in-out infinite; }
+
+  /* Pause marquee on hover */
+  .animate-marquee:hover,
+  .animate-marquee-slow:hover,
+  .animate-marquee-fast:hover,
+  .animate-marquee-reverse:hover {
+    animation-play-state: paused;
+  }
+
+  /* Curved section wrapper — large rounded bottom corners with subtle outline,
+     creating a stacked-ribbon flow between consecutive homepage sections. */
+  .section-curve {
+    @apply relative rounded-b-[2.5rem] md:rounded-b-[4rem] lg:rounded-b-[5rem] overflow-hidden;
+    box-shadow:
+      0 1px 0 0 hsl(var(--foreground) / 0.06) inset,
+      0 -1px 0 0 hsl(var(--foreground) / 0.04) inset,
+      0 24px 48px -32px hsl(var(--foreground) / 0.18);
+  }
+  .section-curve::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    border: 1px solid hsl(var(--foreground) / 0.08);
+    border-top: 0;
+  }
+  /* Pull the following section up so it tucks under the curve */
+  .section-curve + * {
+    margin-top: -2.5rem;
+  }
+  @media (min-width: 768px) {
+    .section-curve + * { margin-top: -4rem; }
+  }
+  @media (min-width: 1024px) {
+    .section-curve + * { margin-top: -5rem; }
+  }
+
+  /* Hero section — gold shimmer on "EVERY UAE" headline word */
+  @keyframes gold-shimmer {
+    0%   { background-position: -200% center; }
+    100% { background-position:  200% center; }
+  }
+  .hero-gold-shimmer {
+    background: linear-gradient(
+      105deg,
+      hsl(var(--primary)) 30%,
+      hsl(40 60% 80%) 50%,
+      hsl(var(--primary)) 70%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    animation: gold-shimmer 3.5s linear infinite;
+  }
+
+  /* ── Scroll-driven text reveal effects (CSS scroll-timeline / view()) ── */
+
+  @keyframes text-reveal {
+    0%   { opacity: 0.1; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+  }
+
+  .scroll-text {
+    display: inline-block;
+    will-change: opacity, transform;
+    animation: text-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 50%;
+  }
+
+  @keyframes write-on {
+    0%   { clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); }
+    100% { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+  }
+
+  .scroll-type {
+    animation: write-on linear both;
+    animation-timeline: view();
+    animation-range: entry 20% entry 70%;
+  }
+
+  @keyframes gradient-slide {
+    0%   { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+
+  .scroll-glow {
+    background: linear-gradient(
+      90deg,
+      hsl(var(--primary)) 20%,
+      hsl(40 70% 85%) 50%,
+      hsl(var(--primary)) 80%
+    );
+    background-size: 300% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    animation: gradient-slide linear both;
+    animation-timeline: view();
+    animation-range: entry 10% exit 90%;
+  }
+
+  @keyframes media-reveal {
+    0%   { opacity: 0; transform: scale(1.04); clip-path: inset(0 0 100% 0); }
+    100% { opacity: 1; transform: scale(1); clip-path: inset(0 0 0% 0); }
+  }
+
+  .scroll-media {
+    animation: media-reveal linear both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 60%;
+  }
+
+  /* ── Reduced-motion: neutralize all scroll-driven & ambient animations ── */
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+
+    .scroll-text,
+    .scroll-type,
+    .scroll-glow,
+    .scroll-media {
+      animation: none !important;
+      opacity: 1 !important;
+      transform: none !important;
+      clip-path: none !important;
+    }
+    .scroll-glow {
+      -webkit-text-fill-color: hsl(var(--primary)) !important;
+      color: hsl(var(--primary)) !important;
+    }
+
+    .hero-gold-shimmer {
+      animation: none !important;
+      -webkit-text-fill-color: hsl(var(--primary)) !important;
+      color: hsl(var(--primary)) !important;
+    }
+
+    .hero-glow-drift,
+    .proof-drift-a,
+    .proof-drift-b,
+    .animate-marquee,
+    .animate-marquee-slow,
+    .animate-marquee-fast,
+    .animate-marquee-reverse {
+      animation: none !important;
+    }
+  }
+}
